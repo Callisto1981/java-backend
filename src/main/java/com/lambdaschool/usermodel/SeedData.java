@@ -83,16 +83,16 @@ public class SeedData
         userService.save(u1);
 
         // data, user
-        User u2 = new User("cinnamon",
+        User u2 = new User("wayne",
                            "1234567",
-                           "cinnamon@lambdaschool.local");
+                           "wayne@lambdaschool.local");
         u2.getRoles()
                 .add(new UserRoles(u2, r2));
         u2.getRoles()
                 .add(new UserRoles(u2, r3));
         u2.getUseremails()
                 .add(new Useremail(u2,
-                                   "cinnamon@mymail.local"));
+                                   "wayne@mymail.local"));
         u2.getUseremails()
                 .add(new Useremail(u2,
                                    "hops@mymail.local"));

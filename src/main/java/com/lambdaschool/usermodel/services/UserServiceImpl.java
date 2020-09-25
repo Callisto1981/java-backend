@@ -1,10 +1,7 @@
 package com.lambdaschool.usermodel.services;
 
 import com.lambdaschool.usermodel.exceptions.ResourceNotFoundException;
-import com.lambdaschool.usermodel.models.Role;
-import com.lambdaschool.usermodel.models.User;
-import com.lambdaschool.usermodel.models.UserRoles;
-import com.lambdaschool.usermodel.models.Useremail;
+import com.lambdaschool.usermodel.models.*;
 import com.lambdaschool.usermodel.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -121,6 +118,15 @@ public class UserServiceImpl
                 .add(new Useremail(newUser,
                     ue.getUseremail()));
         }
+        newUser.getJournals().clear();
+        for (Journal j : user.getJournals())
+        {
+            newUser.getJournals()
+                .add(new Journal(newUser,
+                    j.getDescription(),
+                    j.getDatestarted(),
+                    j.getLocation()));
+        }
 
         return userrepos.save(newUser);
     }
@@ -184,8 +190,6 @@ public class UserServiceImpl
             return userrepos.save(currentUser);
         } else
         {
-            // note we should never get to this line but is needed for the compiler
-            // to recognize that this exception can be thrown
             throw new ResourceNotFoundException("This user is not authorized to make change");
         }
     }

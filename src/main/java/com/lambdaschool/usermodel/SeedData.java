@@ -3,10 +3,7 @@ package com.lambdaschool.usermodel;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
-import com.lambdaschool.usermodel.models.Role;
-import com.lambdaschool.usermodel.models.User;
-import com.lambdaschool.usermodel.models.UserRoles;
-import com.lambdaschool.usermodel.models.Useremail;
+import com.lambdaschool.usermodel.models.*;
 import com.lambdaschool.usermodel.services.RoleService;
 import com.lambdaschool.usermodel.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +77,9 @@ public class SeedData
                 .add(new Useremail(u1,
                                    "admin@mymail.local"));
 
+        u1.getJournals().add(new Journal(u1, "Happy times!", "5/28/2017", "Italy"));
+        u1.getJournals().add(new Journal(u1, "The best place to be!", "8/06/2018", "Germany"));
+
         userService.save(u1);
 
         // data, user
@@ -99,6 +99,9 @@ public class SeedData
         u2.getUseremails()
                 .add(new Useremail(u2,
                                    "bunny@email.local"));
+        u2.getJournals().add(new Journal(u2, "What a beautiful place!", "2/05/2017", "Morocco"));
+        u2.getJournals().add(new Journal(u2, "Rich in culture!", "10/26/2016", "Austria"));
+
         userService.save(u2);
 
         // user
@@ -110,6 +113,9 @@ public class SeedData
         u3.getUseremails()
                 .add(new Useremail(u3,
                                    "barnbarn@email.local"));
+        u3.getJournals().add(new Journal(u3, "What an adventure", "1/19/2012", "Italy, Rome"));
+        u3.getJournals().add(new Journal(u3, "Fun times!", "7/01/2018", "Sweden"));
+
         userService.save(u3);
 
         User u4 = new User("puttat",
@@ -117,6 +123,9 @@ public class SeedData
                            "puttat@school.lambda");
         u4.getRoles()
                 .add(new UserRoles(u4, r2));
+        u4.getJournals().add(new Journal(u4, "Beautiful!", "3/10/2017", "Italy, Pisa"));
+        u4.getJournals().add(new Journal(u4, "Lovely city!", "7/02/2018", "Germany, Munchen"));
+
         userService.save(u4);
 
         User u5 = new User("misskitty",
@@ -124,6 +133,9 @@ public class SeedData
                            "misskitty@school.lambda");
         u5.getRoles()
                 .add(new UserRoles(u5, r2));
+        u5.getJournals().add(new Journal(u5, "I love the language", "1/23/2016", "Bulgaria"));
+        u5.getJournals().add(new Journal(u5, "2nd time around!", "11/16/2018", "Germany"));
+
         userService.save(u5);
 
         if (false)

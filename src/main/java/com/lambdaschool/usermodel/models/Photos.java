@@ -8,50 +8,50 @@ public class Photos
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long photoid;
+    private long photosid;
 
-    private String name;
-    private String location;
+    private String photosname;
+    private String photoslocation;
 
     public Photos()
     {
     }
 
     public Photos(
-        String name,
-        String location)
+        String photosname,
+        String photoslocation)
     {
-        this.name = name;
-        this.location = location;
+        this.photosname = photosname;
+        this.photoslocation = photoslocation;
     }
 
-    public long getPhotoid()
+    public long getPhotosid()
     {
-        return photoid;
+        return photosid;
     }
 
-    public void setPhotoid(long photoid)
+    public void setPhotosid(long photosid)
     {
-        this.photoid = photoid;
+        this.photosid = photosid;
     }
 
-    public String getName()
+    public String getPhotosName()
     {
-        return name;
+        return photosname;
     }
 
-    public void setName(String name)
+    public void setPhotosName(String photosname)
     {
-        this.name = name;
+        this.photosname = photosname;
     }
 
-    public String getLocation()
+    public String getPhotosLocation()
     {
-        return location;
+        return photoslocation;
     }
 
-    public void setLocation(String location)
+    public void setPhotosLocation(String photoslocation)
     {
-        this.location = location;
+        this.photoslocation = photoslocation;
     }
 }
